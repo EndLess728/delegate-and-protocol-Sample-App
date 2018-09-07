@@ -12,7 +12,7 @@ protocol dataPass {
     func dataPassing( name:String, age:String, city:String)
 }
 
-class secondViewController: UIViewController {
+class secondViewController: UIViewController  {
     
     
     @IBOutlet weak var nameTxt: UITextField!
@@ -39,38 +39,31 @@ class secondViewController: UIViewController {
         
         if nameTxt.text == ""
         {
-            alert("Enter Name", msg: "" , delegate: self)
+            self.alert("", title:"Enter Name")
         }
         else if ageTxt.text == ""
         {
-            alert("Enter Age", msg: "" , delegate: self)
+            alert("" , title: "Enter Age")
         }
         else if cityTxt.text == ""
         {
-            alert("Enter City", msg: "" , delegate: self)
+            alert("" , title: "Enter City")
         }
         
         delegate.dataPassing(nameTxt.text!, age: ageTxt.text!, city: cityTxt.text!)
         
     }
     
-    
-    func alert(Title:String, msg:String, delegate: AnyObject){
-        
-        
-                let alertmsg = UIAlertView() // UIAlertView() is Deprecated/outdated now in ios 9.0 now we use UIAlertController with PrefferredStyle
-                alertmsg.title = Title
-                alertmsg.message = msg
-                alertmsg.addButtonWithTitle("OK")
-                alertmsg.delegate = delegate
-                alertmsg.show()
-        
-        
-        
-    }
+
     
     
-    
+        func alert(message: String, title: String ) {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+          
+        }
     
 
 
