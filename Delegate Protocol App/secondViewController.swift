@@ -37,7 +37,35 @@ class secondViewController: UIViewController {
     
     @IBAction func saveButton(sender: UIButton) {
         
+        if nameTxt.text == ""
+        {
+            alert("Enter Name", msg: "" , delegate: self)
+        }
+        else if ageTxt.text == ""
+        {
+            alert("Enter Age", msg: "" , delegate: self)
+        }
+        else if cityTxt.text == ""
+        {
+            alert("Enter City", msg: "" , delegate: self)
+        }
+        
         delegate.dataPassing(nameTxt.text!, age: ageTxt.text!, city: cityTxt.text!)
+        
+    }
+    
+    
+    func alert(Title:String, msg:String, delegate: AnyObject){
+        
+        
+                let alertmsg = UIAlertView() // UIAlertView() is Deprecated/outdated now in ios 9.0 now we use UIAlertController with PrefferredStyle
+                alertmsg.title = Title
+                alertmsg.message = msg
+                alertmsg.addButtonWithTitle("OK")
+                alertmsg.delegate = delegate
+                alertmsg.show()
+        
+        
         
     }
     
