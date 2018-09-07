@@ -23,8 +23,8 @@ class secondViewController: UIViewController {
 
     @IBOutlet weak var cityTxt: UITextField!
     
-    
-    var delegate : dataPass! // we use ! sing bcz if the value of datapass is nill ot empty it will crash the app but if we use ? instead of this then if the value will become nil or it has any type of dta the app will not crash
+    //Assigning Variable to Delegate
+    var delegate : dataPass! // we use ! sign bcz if the value of datapass is nill ot empty it will crash the app but if we use ? sign instead of this then if the value will become nil or it has any type of dta the app will not crash
     
     override func viewDidLoad() {
         super.viewDidLoad()
